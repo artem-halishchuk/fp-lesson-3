@@ -5,17 +5,18 @@ function factorialFunction(inputNumber) {
     for (let i=0; i<inputNumber; i++) {
         result *= (i+1);
     }
-    alert(result);
+    alert("Факториал числа " +inputNumber+" = "+result);
     return result;
 }
 //task 2
 function degreeFunction(number, degree) {
+    let number0 = number;
     let minus = 1;
     let temp = number;
     if (degree<0) minus = -1;
     for (let i=1; i<(degree*minus); i++) number *=temp;
     if (minus === -1) number = 1/number;
-    alert(number);
+    alert("Число "+number0+" в степени "+degree+" = "+number);
     return number;
 }
 //task 3
@@ -26,7 +27,8 @@ function multiples(numberFirst, numberSecond){
         i++;
         result = ((parseFloat(i%numberFirst) == 0) &&
                   (parseFloat(i%numberSecond) == 0)) ? false : true;
-    } while(result)
+    } while(result);
+    alert("Наименьшее общее кратное чисел "+numberFirst+" и "+numberSecond+" = "+i);
     return i;
 }
 //task 4
@@ -49,6 +51,7 @@ function numRev(enteredNum) {
     outNum = parseInt(outNum);
     if (minus) outNum *=-1;
     if (enteredNum === 0) outNum = 0;
+    alert("Число "+enteredNum+" преобразованное \"задом на перед\""+" = "+outNum);
     return outNum;
 }
 
