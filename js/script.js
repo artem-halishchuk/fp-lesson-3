@@ -1,3 +1,4 @@
+//task 1
 function factorialFunction(inputNumber) {
     let result = 1;
     if (inputNumber<0) result = "Invalid input";
@@ -7,6 +8,7 @@ function factorialFunction(inputNumber) {
     alert(result);
     return result;
 }
+//task 2
 function degreeFunction(number, degree) {
     let minus = 1;
     let temp = number;
@@ -16,17 +18,39 @@ function degreeFunction(number, degree) {
     alert(number);
     return number;
 }
-
+//task 3
 function multiples(numberFirst, numberSecond){
     let i = 0;
     let result = true;
     do {
-        i += 1;
-        result = (i%numberFirst === i%numberSecond) ? false : true;
+        i++;
+        result = ((parseFloat(i%numberFirst) == 0) &&
+                  (parseFloat(i%numberSecond) == 0)) ? false : true;
     } while(result)
     return i;
 }
-
+//task 4
+function numRev(enteredNum) {
+    let temp = enteredNum;
+    let remainder;
+    let outNum = "";
+    let minus = false;
+    while (temp) {
+        if (temp<1) {
+            temp *=-1;
+            minus = true;
+        }
+        remainder = temp%10; //1234 - 4
+        temp = parseInt(temp/10); //1234 - 123
+        console.log(remainder);
+        console.log(temp);
+        outNum += String(remainder);
+    }
+    outNum = parseInt(outNum);
+    if (minus) outNum *=-1;
+    if (enteredNum === 0) outNum = 0;
+    return outNum;
+}
 
 
 function inputNumberForFactorial() {
@@ -38,7 +62,6 @@ function inputNumberForFactorial() {
 
 }
 //button_factorial.addEventListener("click", inputNumberForFactorial);
-
 function inputNumberForDegree() {
     let number = parseFloat(prompt("Введите число", 4));
     let degree = parseFloat(prompt("Введите степень", 2));
@@ -50,7 +73,6 @@ function inputNumberForDegree() {
     let  outDegree = document.querySelector(".out-degree");
     outDegree.innerHTML = degreeFunction(number, degree);
 }
-
 function inputNumberForMultiples() {
     let numberFirst = parseFloat(prompt("Введите первое число", 4));
     let numberSecond = parseFloat(prompt("Введите второе число", 2));
@@ -62,7 +84,13 @@ function inputNumberForMultiples() {
     let  outMultiples = document.querySelector(".out-multiples");
     outMultiples.innerHTML = multiples(numberFirst, numberSecond);
 }
-
+function inputRevNumber() {
+    let inputNumber = parseInt(prompt("Введите число", 1234));
+    let  inputNumberRev = document.querySelector(".in-rev-number");
+    inputNumberRev.innerHTML = inputNumber;
+    let  outputNumberRev = document.querySelector(".out-rev-number");
+    outputNumberRev.innerHTML = numRev(inputNumber);
+}
 
 
 
